@@ -1,0 +1,17 @@
+simple linked list library
+for use you have to add new prop to your struct , and name it 'link' , like this :
+
+	struct name {
+		int blabla;
+		char *blabla2;
+		// ***********
+	->	L_LINK(struct_type) link;
+		// ***********
+	};
+
+then you can use macros to change list like :
+
+L_LINK_SPREV : set second object as prev for first object
+L_LINK_SNEXT : like L_LINK_SPREV but for 'next'
+L_LINK_INSERT : add new object to list , append after first object
+L_LINK_REMOVE : remove object from 
