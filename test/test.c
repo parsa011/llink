@@ -66,20 +66,41 @@ bool test_insert()
 	L_LINK_SPREV(b,a);
 	L_LINK_INSERT(a,c);
 
-	show_list(a);
 	return strcmp(L_LINK_NEXT(a)->name,"3") == 0;
+}
+
+bool test_remove()
+{
+	person *a = malloc(sizeof(person));
+	strcpy(a->name,"1"); 
+
+	person *b = malloc(sizeof(person));
+	strcpy(b->name,"2");
+
+	person *c = malloc(sizeof(person));
+	strcpy(c->name,"3"); 
+
+	L_LINK_SNEXT(a,c);
+	L_LINK_SPREV(c,a);
+	L_LINK_INSERT(a,b);
+	L_LINK_REMOVE(a);
+	if (L_LINK_PREV(b) == NULL)
+		return true;
+	return false;
 }
 
 const char *test_functions_names[] = {
 	"test set next",
 	"test set prev",
-	"test insert"
+	"test insert",
+	"test remove"
 };
 
 bool (*test_functions[])() = {
 	test_set_next,
 	test_set_prev,
-	test_insert
+	test_insert,
+	test_remove
 };
 
 void log_res(char *state,const char *fmt,...)
