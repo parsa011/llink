@@ -16,6 +16,17 @@ typedef struct person_t {
 	char name[64];
 } person;
 
+void show_list(person *first)
+{
+	int indent = 0;
+	for (; first != NULL; first = L_LINK_NEXT(first)) {
+		for (int x = 0; x < indent; x++)
+			putchar('\t');
+		printf("%s\r\n",first->name);
+		indent++;
+	}
+}
+
 bool test_set_next()
 {
 	person a;
@@ -40,14 +51,35 @@ bool test_set_prev()
 	return strcmp(L_LINK_PREV(&b)->name,"1") == 0;
 }
 
+bool test_insert()
+{
+	person *a = malloc(sizeof(person));
+	strcpy(a->name,"1"); 
+	
+	person *b = malloc(sizeof(person));
+	strcpy(b->name,"2");
+
+	person *c = malloc(sizeof(person));
+	strcpy(c->name,"3"); 
+
+	L_LINK_SNEXT(a,b);
+	L_LINK_SPREV(b,a);
+	L_LINK_INSERT(a,c);
+
+	show_list(a);
+	return strcmp(L_LINK_NEXT(a)->name,"3") == 0;
+}
+
 const char *test_functions_names[] = {
 	"test set next",
-	"test set prev"
+	"test set prev",
+	"test insert"
 };
 
 bool (*test_functions[])() = {
 	test_set_next,
-	test_set_prev
+	test_set_prev,
+	test_insert
 };
 
 void log_res(char *state,const char *fmt,...)
