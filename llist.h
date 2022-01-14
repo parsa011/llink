@@ -17,8 +17,7 @@
 	if (L_LINK_NEXT(l) != NULL) { \
 		L_LINK_SPREV(L_LINK_NEXT(l),n); \
 		L_LINK_SNEXT(n,L_LINK_NEXT(l)); \
-	} else \
-		L_LINK_SNEXT(n,NULL); \
+	} \
 	L_LINK_SPREV(n,l); \
 	L_LINK_SNEXT(l,n); \
 }

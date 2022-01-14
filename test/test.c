@@ -82,7 +82,7 @@ bool test_remove()
 
 	L_LINK_SNEXT(a,c);
 	L_LINK_SPREV(c,a);
-	L_LINK_INSERT(a,b);
+	L_LINK_INSERT(c,a);
 	L_LINK_REMOVE(a);
 	if (L_LINK_PREV(b) == NULL)
 		return true;
