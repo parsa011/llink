@@ -15,3 +15,10 @@ L_LINK_SPREV : set second object as prev for first object
 L_LINK_SNEXT : like L_LINK_SPREV but for 'next'
 L_LINK_INSERT : add new object to list , append after first object
 L_LINK_REMOVE : remove object from 
+
+and there some some usefull macros like :
+
+L_LINK_NEXT : return next object of given object
+L_LINK_PREV : prev object of given object
+
+* NOTE that to pass args as pointer :)
