@@ -22,10 +22,6 @@
 	L_LINK_SNEXT(l,n); \
 }
 
-#define L_LINK_GET_LAST(o) { \
-	for (; o != NULL; o = L_LINK_NEXT(o)); \
-}
-
 #define L_LINK_REMOVE(o) { \
 	int have_next = L_LINK_NEXT(o) != NULL; \
 	int have_prev = L_LINK_PREV(o) != NULL; \
