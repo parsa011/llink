@@ -13,9 +13,13 @@
 #define L_LINK_SNEXT(s,d) ((s)->link.next = d)
 #define L_LINK_SPREV(s,d) ((s)->link.prev = d)
 
+#define L_LINK_RESET(o) {                   \
+	o->link.next = o->link.prev = NULL; \
+}
+
 #define L_LINK_INSERT(l,n) { \
 	if (L_LINK_NEXT(l) != NULL) { \
-		L_LINK_SPREV(L_LINK_NEXT(l),n); \
+		L_LINK_SPREV(L_LINK_NEXT(l),na); \
 		L_LINK_SNEXT(n,L_LINK_NEXT(l)); \
 	} \
 	L_LINK_SPREV(n,l); \
