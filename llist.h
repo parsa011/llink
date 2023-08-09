@@ -19,7 +19,7 @@
 
 #define L_LINK_INSERT(l,n) { \
 	if (L_LINK_NEXT(l) != NULL) { \
-		L_LINK_SPREV(L_LINK_NEXT(l),na); \
+		L_LINK_SPREV(L_LINK_NEXT(l), n); \
 		L_LINK_SNEXT(n,L_LINK_NEXT(l)); \
 	} \
 	L_LINK_SPREV(n,l); \
